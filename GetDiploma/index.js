@@ -11,7 +11,7 @@ try{
   const result =  await sql.query(
       `SELECT Id as id, Title as title from Diplomas where Id=${req.params.id};
 
-      SELECT AY.Title As AcademicYear,DY.Title AS DiplomaYear,DYS.Title AS DiplomaYearSection, concat(I.FirstName,' ', I.LastName) as Advisor
+      SELECT AY.Title As AcademicYear,DY.Title AS DiplomaYear,DYS.Title AS DiplomaYearSection,I.Id as InstructorsId,  concat(I.FirstName,' ', I.LastName) as Advisor
                         FROM Diplomas D
                         inner join DiplomaYears DY on D.Id = DY.DiplomaId
                         inner join DiplomaYearSections DYS on DY.Id = DYS.DiplomaYearId
